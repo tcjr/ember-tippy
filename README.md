@@ -15,44 +15,46 @@ modifier and component.
 - Ember-tippy ❤️ Octane. No observers. No computeds. 0% Ember Classic.
 - Powered by modern and up to date [Tippy.js](https://github.com/atomiks/tippyjs) and [Popper.js v2](https://popper.js.org/).
 
+## Compatibility
 
-Compatibility
-------------------------------------------------------------------------------
+- Ember.js v4.8 or above. Older versions of Ember can use version ^3.0.0.
+- Embroider or ember-auto-import v2
 
-* Ember.js v3.25 or above
-* Ember CLI v3.25 or above
-* ember-auto-import v2 or above
+## Dependencies
 
+- tippy.js ^6.0.0. It's a peer dependency. You should install it in your app.
+- ember-auto-import ^2.0.0
+- ember-modifier ^3.0.0
 
-Dependencies
------------------------------------------------------------------------------
-
-* tippy.js ^6.0.0. It's a peer dependency. The default addon blueprint will add tippy.js to
-  your package.json during install.
-* ember-auto-import ^2.0.0
-* ember-modifier ^3.0.0
-
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
-ember install ember-tippy
+npm install --save-dev ember-tippy
 ```
 
+or
 
-Demo and Usage
-------------------------------------------------------------------------------
+```
+yarn add --dev ember-tippy
+```
+
+or
+
+```
+pnpm add --save-dev ember-tippy
+```
+
+## Demo and Usage
 
 This addon provides a modifier `{{tippy}}` and a component `<Tippy>`.
 
 Here are some basic usage examples:
 
-``` hbs
+```hbs
 <button {{tippy "I'm a Tippy tooltip!"}}>My Button</button>
 ```
 
-``` hbs
+```hbs
 <button>
   My Button
   <Tippy>I'm a <b>Tippy</b> tooltip!</Tippy>
@@ -61,9 +63,7 @@ Here are some basic usage examples:
 
 You can see the demos and all the examples here: https://nag5000.github.io/ember-tippy/.
 
-
-Supported Features
-------------------------------------------------------------------------------
+## Supported Features
 
 ember-tippy supports [all tippy.js options](https://atomiks.github.io/tippyjs/v6/all-props/).
 
@@ -78,35 +78,31 @@ just use them the same way as for vanilla tippy.js.
 
 Please see the demos and examples here: https://nag5000.github.io/ember-tippy/.
 
-
-API
-------------------------------------------------------------------------------
+## API
 
 Please see the [API](API.md).
 
+## Build-time Config and Imports
 
-Build-time Config and Imports
-------------------------------------------------------------------------------
-
-ember-tippy does not import any 
+ember-tippy does not import any
 [optional extra stuff](https://atomiks.github.io/tippyjs/v6/getting-started/#optional-extra-imports)
-from tippy, except 
+from tippy, except
 [Tippy Core CSS](https://atomiks.github.io/tippyjs/v6/getting-started/#1-package-manager).
 
-If you don't want to bundle Tippy Core CSS, you can disable it by using 
+If you don't want to bundle Tippy Core CSS, you can disable it by using
 `shouldIncludeTippyCoreCss: false` in ember-tippy build-time config.
 
-If you want to use tippy's built-in custom themes, arrows or animations, please refer to 
+If you want to use tippy's built-in custom themes, arrows or animations, please refer to
 [this example](https://nag5000.github.io/ember-tippy/#themes). Configurable bundling of optional
 extra tippy stuff at build-time could be implemented in the future.
 
-`<TippySingleton>` also imports 
+`<TippySingleton>` also imports
 [`createSingleton`](https://atomiks.github.io/tippyjs/v6/addons/#singleton).
 If you don't use this component and you are on embroider, it should be tree-shaken.
 
 Below is the ember-tippy build-time config with defaults:
 
-``` js
+```js
 // ember-cli-build.js
 let app = new EmberApp(defaults, {
   '@embroider/macros': {
@@ -119,14 +115,10 @@ let app = new EmberApp(defaults, {
 });
 ```
 
-
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
