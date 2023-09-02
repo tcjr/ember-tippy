@@ -12,7 +12,6 @@
   "license": "MIT",
   "author": "nag5000 <al3x.nag@gmail.com>",
   "exports": {
-    ".": "./dist/index.js",
     "./*": "./dist/*.js",
     "./addon-main.js": "./addon-main.cjs"
   },

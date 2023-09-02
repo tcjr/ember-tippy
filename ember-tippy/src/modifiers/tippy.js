@@ -1,17 +1,13 @@
 import Modifier from 'ember-modifier';
 import { isHTMLSafe } from '@ember/template';
-// import { getOwnConfig, importSync, macroCondition } from '@embroider/macros';
-import { importSync } from '@embroider/macros';
+import { getOwnConfig, importSync, macroCondition } from '@embroider/macros';
 import { registerDestructor } from '@ember/destroyable';
 
 import tippy from 'tippy.js';
 
-// FIXME: This is not working in the new v2 addon format.
-//        I think I just need to figure out where to put the getOwnConfig code
-//        mentioned here: https://github.com/embroider-build/embroider/tree/main/packages/macros#setting-configuration-from-an-ember-addon
-// if (macroCondition(getOwnConfig().shouldIncludeTippyCoreCss)) {
-importSync('tippy.js/dist/tippy.css');
-// }
+if (macroCondition(getOwnConfig().shouldIncludeTippyCoreCss)) {
+  importSync('tippy.js/dist/tippy.css');
+}
 
 function cleanup(modifierInstance) {
   const { onInstancesWillDestroy } = modifierInstance._options;
