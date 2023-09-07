@@ -1,13 +1,8 @@
 import Modifier from 'ember-modifier';
 import { isHTMLSafe } from '@ember/template';
-import { getOwnConfig, importSync, macroCondition } from '@embroider/macros';
 import { registerDestructor } from '@ember/destroyable';
 
 import tippy from 'tippy.js';
-
-if (macroCondition(getOwnConfig().shouldIncludeTippyCoreCss)) {
-  importSync('tippy.js/dist/tippy.css');
-}
 
 function cleanup(modifierInstance) {
   const { onInstancesWillDestroy } = modifierInstance._options;

@@ -82,38 +82,26 @@ Please see the demos and examples here: https://nag5000.github.io/ember-tippy/.
 
 Please see the [API](API.md).
 
-## Build-time Config and Imports
+## Config and Imports
 
 ember-tippy does not import any
 [optional extra stuff](https://atomiks.github.io/tippyjs/v6/getting-started/#optional-extra-imports)
-from tippy, except
-[Tippy Core CSS](https://atomiks.github.io/tippyjs/v6/getting-started/#1-package-manager).
+from tippy.
 
-If you don't want to bundle Tippy Core CSS, you can disable it by using
-`shouldIncludeTippyCoreCss: false` in ember-tippy build-time config.
+Unlike previous versions of this addon, the
+[Tippy Core CSS](https://atomiks.github.io/tippyjs/v6/getting-started/#1-package-manager) is not included automatically. In your application, you can include it anywhere.
+(`app/app.js` is a good place.) Since Ember now supports direct import of css files, this is the recommended way of including extra tippy stuff.
+
+```js
+import 'tippy.js/dist/tippy.css'; // optional for styling
+```
 
 If you want to use tippy's built-in custom themes, arrows or animations, please refer to
-[this example](https://nag5000.github.io/ember-tippy/#themes). Configurable bundling of optional
-extra tippy stuff at build-time could be implemented in the future.
+[this example](https://nag5000.github.io/ember-tippy/#themes).
 
 `<TippySingleton>` also imports
 [`createSingleton`](https://atomiks.github.io/tippyjs/v6/addons/#singleton).
 If you don't use this component and you are on embroider, it should be tree-shaken.
-
-Below is the ember-tippy build-time config with defaults:
-
-```js
-// ember-cli-build.js
-let app = new EmberApp(defaults, {
-  '@embroider/macros': {
-    setConfig: {
-      'ember-tippy': {
-        shouldIncludeTippyCoreCss: true,
-      },
-    },
-  },
-});
-```
 
 ## Contributing
 
